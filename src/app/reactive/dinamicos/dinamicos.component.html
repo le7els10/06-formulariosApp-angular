@@ -1,0 +1,29 @@
+<h2>Reactive : Básicos</h2>
+<hr />
+
+<form [formGroup]="myForm">
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label"> Nombre </label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        placeholder="Nombre"
+      />
+      <span *ngIf="validateFields('name')" class="form-text text-danger"
+        >Debe ser de 3 letras
+      </span>
+    </div>
+    <div class="col-sm-12">
+      <button
+        type="button"
+        class="btn btn-secondary float-end mt-3"
+        (click)="guardar()"
+        [disabled]="myForm.invalid"
+      >
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
